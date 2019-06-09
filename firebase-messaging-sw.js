@@ -10,6 +10,8 @@ firebase.initializeApp({
 // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
 if ('Notification' in window) {
 
+
+
     // пользователь уже разрешил получение уведомлений
     // подписываем на уведомления если ещё не подписали
     if (Notification.permission === 'granted') {
@@ -26,6 +28,13 @@ if ('Notification' in window) {
 function subscribe() {
 
 const messaging = firebase.messaging();
+
+navigator.serviceWorker.register('firebase-messaging-sw.js')
+.then((registration) => {
+messaging.useServiceWorker(registration);
+
+// Request permission and get token.....
+});
 
     // запрашиваем разрешение на получение уведомлений
     messaging.requestPermission()
