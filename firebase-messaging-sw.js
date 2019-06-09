@@ -1,7 +1,7 @@
 
 
 firebase.initializeApp({
-    messagingSenderId: 'BI_kHWMqEw2pV2Nt_sWM4aY61myAoRC_-yLbVVANy86O0qHO9BaZxXFxaAFTX-JfXO2IryYxGh_d6etUMhvd8W8'
+    messagingSenderId: '309655316986'
 });
 
 
