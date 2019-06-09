@@ -9,7 +9,7 @@ const messaging = firebase.messaging();
 // браузер поддерживает уведомления
 // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
 if ('Notification' in window) {
-    
+
     // пользователь уже разрешил получение уведомлений
     // подписываем на уведомления если ещё не подписали
     if (Notification.permission === 'granted') {
@@ -18,9 +18,9 @@ if ('Notification' in window) {
 
     // по клику, запрашиваем у пользователя разрешение на уведомления
     // и подписываем его
-    $('#subscribe').on('click', function () {
-        subscribe();
-    });
+
+    document.querySelector('#subscribe').addEventListener('click',subscribe())
+
 }
 
 function subscribe() {
