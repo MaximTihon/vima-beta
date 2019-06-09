@@ -29,13 +29,6 @@ function subscribe() {
 
 const messaging = firebase.messaging();
 
-navigator.serviceWorker.register('firebase-messaging-sw.js')
-.then((registration) => {
-messaging.useServiceWorker(registration);
-
-// Request permission and get token.....
-});
-
     // запрашиваем разрешение на получение уведомлений
     messaging.requestPermission()
         .then(function () {
