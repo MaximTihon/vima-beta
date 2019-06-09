@@ -5,50 +5,14 @@ firebase.initializeApp({
 });
 
 
-
-// браузер поддерживает уведомления
-// вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
-if ('Notification' in window) {
-
-
-
-    // пользователь уже разрешил получение уведомлений
-    // подписываем на уведомления если ещё не подписали
-    if (Notification.permission === 'granted') {
-        subscribe();
-    }
-
-    // по клику, запрашиваем у пользователя разрешение на уведомления
-    // и подписываем его
-
-    document.querySelector('#subscribe').addEventListener('click',subscribe())
-
-}
-
-function subscribe() {
-
 const messaging = firebase.messaging();
 
-    // запрашиваем разрешение на получение уведомлений
-    messaging.requestPermission()
-        .then(function () {
-            // получаем ID устройства
-            messaging.getToken()
-                .then(function (currentToken) {
-                    console.log(currentToken);
-
-                    // if (currentToken) {
-                    //     sendTokenToServer(currentToken);
-                    // } else {
-                    //     console.warn('Не удалось получить токен.');
-                    //
-                    // }
-                })
-                .catch(function (err) {
-                    console.warn('При получении токена произошла ошибка.', err);
-                });
-    })
-    .catch(function (err) {
-        console.warn('Не удалось получить разрешение на показ уведомлений.', err);
-    });
-}
+Notification.requestPermission().then(function(permission) {
+  if (permission === 'granted') {
+    console.log('Notification permission granted.');
+    // TODO(developer): Retrieve an Instance ID token for use with FCM.
+    // ...
+  } else {
+    console.log('Unable to get permission to notify.');
+  }
+});
