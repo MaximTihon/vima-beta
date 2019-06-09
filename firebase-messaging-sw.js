@@ -4,7 +4,7 @@ firebase.initializeApp({
     messagingSenderId: 'BI_kHWMqEw2pV2Nt_sWM4aY61myAoRC_-yLbVVANy86O0qHO9BaZxXFxaAFTX-JfXO2IryYxGh_d6etUMhvd8W8'
 });
 
-const messaging = firebase.messaging();
+
 
 // браузер поддерживает уведомления
 // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
@@ -24,6 +24,9 @@ if ('Notification' in window) {
 }
 
 function subscribe() {
+
+const messaging = firebase.messaging();
+
     // запрашиваем разрешение на получение уведомлений
     messaging.requestPermission()
         .then(function () {
