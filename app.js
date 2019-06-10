@@ -1,4 +1,15 @@
-
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyDa0IlLAiay8iPYWVCbGlvIoMbdjGyKiiA",
+  authDomain: "vimaby-5a44c.firebaseapp.com",
+  databaseURL: "https://vimaby-5a44c.firebaseio.com",
+  projectId: "vimaby-5a44c",
+  storageBucket: "",
+  messagingSenderId: "692108506641",
+  appId: "1:692108506641:web:04198cc832568440"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 
 const messaging = firebase.messaging();
